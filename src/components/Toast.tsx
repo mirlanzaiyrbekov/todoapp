@@ -9,11 +9,12 @@ export const Toast: React.FC = () => {
 	return (
 		<div
 			className={cn(
-				'fixed bottom-20 left-5',
+				'fixed xxs:bottom-5 left-1/2 -translate-1/2 z-20 xxs:max-w-[220px] md:max-w-sm w-full',
+				'md:bottom-10 md:left-5 -translate-0',
 				'p-4 rounded-md shadow-sm bg-white border border-gray-200 transition-all duration-300',
 				isActive
 					? 'opacity-100 translate-y-0'
-					: 'opacity-0 translate-y-2 pointer-events-none'
+					: 'opacity-0 translate-y-2 pointer-events-none '
 			)}
 		>
 			<div className="flex items-center justify-between gap-4">

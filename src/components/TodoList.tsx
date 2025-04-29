@@ -18,12 +18,12 @@ export const TodoList: React.FC = () => {
 
 	const loadTodos = () => {
 		const storedTodos = getTodosFromStorage() || []
-		// const dataTodos = storedTodos.filter(
-		// 	(todo) => currentTime < todo.createdAt + todo.expiresIn * 1000
-		// )
-		// if (dataTodos.length !== storedTodos.length) {
-		// 	saveTodoToStorage(dataTodos)
-		// }
+		const dataTodos = storedTodos.filter(
+			(todo) => currentTime < todo.createdAt + todo.expiresIn * 1000
+		)
+		if (dataTodos.length !== storedTodos.length) {
+			saveTodoToStorage(dataTodos)
+		}
 		setTodos(storedTodos)
 	}
 
