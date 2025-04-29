@@ -18,12 +18,12 @@ export const TodoList: React.FC = () => {
 
 	const loadTodos = () => {
 		const storedTodos = getTodosFromStorage() || []
-		const dataTodos = storedTodos.filter(
-			(todo) => currentTime < todo.createdAt + todo.expiresIn * 1000
-		)
-		if (dataTodos.length !== storedTodos.length) {
-			saveTodoToStorage(dataTodos)
-		}
+		// const dataTodos = storedTodos.filter(
+		// 	(todo) => currentTime < todo.createdAt + todo.expiresIn * 1000
+		// )
+		// if (dataTodos.length !== storedTodos.length) {
+		// 	saveTodoToStorage(dataTodos)
+		// }
 		setTodos(storedTodos)
 	}
 
@@ -70,9 +70,12 @@ export const TodoList: React.FC = () => {
 						todo.expiresIn
 					)
 					return (
-						<div className="grid grid-cols-2 gap-2 p-2" key={todo.id}>
+						<div
+							className="grid grid-cols-2 items-center md:items-start gap-2 p-2"
+							key={todo.id}
+						>
 							<h4 className="text-sm font-medium">{todo.todoName}</h4>
-							<ul className="flex items-center justify-between w-full text-sm">
+							<ul className="flex flex-col md:flex-row gap-3 md:gap-1 items-center justify-between w-full text-sm">
 								<li className="flex items-center gap-2">
 									<small>Выполнен:</small>
 									<div className="relative flex items-center">
@@ -120,7 +123,7 @@ export const TodoList: React.FC = () => {
 					</span>
 				</div>
 			)}
-			<div className="fixed bottom-10 right-10 z-10">
+			<div className="fixed bottom-10 right-4 md:right-10 z-10">
 				<Button
 					className="rounded-xl bg-orange-600 text-xs"
 					onClick={cleanTodods}

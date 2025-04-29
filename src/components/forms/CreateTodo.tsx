@@ -33,7 +33,7 @@ export const CreateTodo: React.FC = () => {
 	return (
 		<form
 			onSubmit={onSubmit}
-			className="grid grid-cols-[1fr_auto] items-center gap-5 py-5"
+			className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-5 py-5"
 		>
 			<div className="relative p-5 rounded-sm border border-gray-400">
 				<input
