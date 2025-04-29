@@ -10,12 +10,19 @@ export const ToastProvider: React.FC<React.PropsWithChildren> = ({
 	const showToast = React.useCallback((msg = '') => {
 		setMessage(msg)
 		setIsActive(true)
-		setTimeout(() => setIsActive(false), 3000)
 	}, [])
 
 	const toastHidde = React.useCallback(() => {
 		setIsActive(false)
 	}, [])
+
+	React.useEffect(() => {
+		let timeOutId: any
+		if (isActive) {
+			timeOutId = setTimeout(() => setIsActive(false), 1200)
+		}
+		return () => clearTimeout(timeOutId)
+	}, [isActive])
 
 	return (
 		<ToastContext.Provider value={{ isActive, message, showToast, toastHidde }}>

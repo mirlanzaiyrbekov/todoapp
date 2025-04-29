@@ -1,8 +1,10 @@
 import { cn } from '@/utils/cn'
 import React, { ButtonHTMLAttributes } from 'react'
+
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	btnType?: 'delete' | 'create' | 'default'
 }
+
 export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 	({ className, btnType = 'default', children, ...props }, ref) => {
 		switch (btnType) {
