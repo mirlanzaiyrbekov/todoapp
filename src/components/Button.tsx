@@ -15,7 +15,7 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 						className={cn(
 							'bg-transparent border-none',
 							'bg-orange-500',
-							'text-white p-1.5 rounded-sm text-xs',
+							'text-white py-2 px-4 rounded-lg text-xs',
 							'hover:opacity-50 cursor-pointer',
 							'transition-opacity delay-75'
 						)}

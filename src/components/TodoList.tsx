@@ -61,7 +61,7 @@ export const TodoList: React.FC = () => {
 	}
 
 	return (
-		<div className="space-y-3 border border-gray-200 p-3 rounded-md">
+		<div className="space-y-3">
 			{todos.length ? (
 				todos.map((todo) => {
 					const remainingTime = getRemainingTime(
@@ -71,12 +71,18 @@ export const TodoList: React.FC = () => {
 					)
 					return (
 						<div
-							className="grid grid-cols-2 items-center md:items-start gap-2 p-2"
+							className={cn(
+								'grid grid-cols-1 p-2 gap-4 items-center',
+								'md:grid-cols-[1fr_1fr_auto]',
+								'border border-gray-200 rounded-md'
+							)}
 							key={todo.id}
 						>
 							<h4 className="text-sm font-medium">{todo.todoName}</h4>
-							<ul className="flex flex-col md:flex-row gap-3 md:gap-1 items-center justify-between w-full text-sm">
-								<li className="flex items-center gap-2">
+							<div
+								className={cn('flex flex-col gap-2', 'sm:flex-row', 'md:gap-5')}
+							>
+								<div className="flex items-center gap-2">
 									<small>Выполнен:</small>
 									<div className="relative flex items-center">
 										<input
@@ -101,36 +107,36 @@ export const TodoList: React.FC = () => {
 											/>
 										)}
 									</div>
-								</li>
-								<li className="flex items-center gap-2">
-									<small>Удалится через</small>
-									<span>{remainingTime}</span>
-								</li>
-								<li>
-									<Button
-										btnType="delete"
-										onClick={() => deleteTodo(todo.id)}
-									/>
-								</li>
-							</ul>
+								</div>
+								<div className="flex items-center gap-2">
+									<small className="text-red-400 text-sm">Удаление через</small>
+									<span className="text-xs">
+										{remainingTime}
+										<sup className="mx-1">c</sup>
+									</span>
+								</div>
+							</div>
+							<Button btnType="delete" onClick={() => deleteTodo(todo.id)} />
 						</div>
 					)
 				})
 			) : (
 				<div className="flex items-center justify-center">
-					<span className="text-sm text-orange-900">
+					<span className="text-sm text-green-800">
 						Задач нет. Создайте первую запись
 					</span>
 				</div>
 			)}
-			<div className="fixed bottom-10 right-4 md:right-10 z-10">
-				<Button
-					className="rounded-xl bg-orange-600 text-xs"
-					onClick={cleanTodods}
-				>
-					Очистить список
-				</Button>
-			</div>
+			{todos.length ? (
+				<div className="fixed bottom-10 right-4 md:right-10 z-10">
+					<Button
+						className="rounded-xl bg-orange-600 text-xs"
+						onClick={cleanTodods}
+					>
+						Очистить список
+					</Button>
+				</div>
+			) : null}
 		</div>
 	)
 }
