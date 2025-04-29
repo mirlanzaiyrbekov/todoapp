@@ -9,9 +9,9 @@ export const Toast: React.FC = () => {
 	return (
 		<div
 			className={cn(
-				'fixed xxs:bottom-5 left-1/2 -translate-1/2 z-20 xxs:max-w-[220px] md:max-w-sm w-full',
-				'md:bottom-10 md:left-5 -translate-0',
-				'p-4 rounded-md shadow-sm bg-white border border-gray-200 transition-all duration-300',
+				'fixed bottom-5 left-1/2 -translate-x-1/2 z-20 max-w-[260px] rounded-lg md:max-w-sm w-full',
+				'md:bottom-10 md:left-5 md:-translate-0',
+				'p-4 md:rounded-md shadow-sm bg-white border border-gray-200 transition-all duration-300',
 				isActive
 					? 'opacity-100 translate-y-0'
 					: 'opacity-0 translate-y-2 pointer-events-none '
