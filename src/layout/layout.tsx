@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Toast } from '@/components/Toast'
-import { ToastProvider } from '@/providers/Todo-provider'
+import { ToastProvider } from '@/providers/Toast-provider'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
